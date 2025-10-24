@@ -1,0 +1,30 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        # This action is a community-maintained wrapper around the Vercel CLI.
+        # See https://github.com/amondnet/vercel-action for documentation.
+        uses: amondnet/vercel-action@v25
+        with:
+          # Required: Your Vercel token
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          
+          # Required: Your Vercel organization ID
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          
+          # Required: Your Vercel project ID
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          
+          # Deploy to the production environment
+          vercel-args: '--prod'
