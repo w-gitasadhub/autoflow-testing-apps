@@ -1,0 +1,5 @@
+{
+  "name": "The Witty Guessing Game",
+  "description": "A fun number guessing game where an AI game master gives you witty feedback on your guesses. Try to guess the secret number between 1 and 100!",
+  "requestFramePermissions": []
+}
